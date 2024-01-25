@@ -9,47 +9,59 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Basics
 build_property.RootNamespace = Basics
-build_property.ProjectDir = C:\Users\Kaya3\OneDrive\Masaüstü\ASPNETCOREBOOTCAMP\Basics\
+build_property.ProjectDir = C:\Users\Kaya3\OneDrive\Belgeler\GitHub\Asp.Net-Bootcamp\ASPNETCOREBOOTCAMP\Basics\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Kaya3\OneDrive\Masaüstü\ASPNETCOREBOOTCAMP\Basics
+build_property.MSBuildProjectDirectory = C:\Users\Kaya3\OneDrive\Belgeler\GitHub\Asp.Net-Bootcamp\ASPNETCOREBOOTCAMP\Basics
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Kaya3/OneDrive/Masaüstü/ASPNETCOREBOOTCAMP/Basics/Views/Bootcamp/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9vdGNhbXBcSW5kZXguY3NodG1s
+[C:/Users/Kaya3/OneDrive/Belgeler/GitHub/Asp.Net-Bootcamp/ASPNETCOREBOOTCAMP/Basics/Views/Bootcamp/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9vdGNhbXBcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Kaya3/OneDrive/Masaüstü/ASPNETCOREBOOTCAMP/Basics/Views/Bootcamp/list.cshtml]
+[C:/Users/Kaya3/OneDrive/Belgeler/GitHub/Asp.Net-Bootcamp/ASPNETCOREBOOTCAMP/Basics/Views/Bootcamp/list.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9vdGNhbXBcbGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Kaya3/OneDrive/Masaüstü/ASPNETCOREBOOTCAMP/Basics/Views/Home/Contact.cshtml]
+[C:/Users/Kaya3/OneDrive/Belgeler/GitHub/Asp.Net-Bootcamp/ASPNETCOREBOOTCAMP/Basics/Views/Bootcamp/_list.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9vdGNhbXBcX2xpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kaya3/OneDrive/Belgeler/GitHub/Asp.Net-Bootcamp/ASPNETCOREBOOTCAMP/Basics/Views/Home/Contact.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Kaya3/OneDrive/Masaüstü/ASPNETCOREBOOTCAMP/Basics/Views/Home/Index.cshtml]
+[C:/Users/Kaya3/OneDrive/Belgeler/GitHub/Asp.Net-Bootcamp/ASPNETCOREBOOTCAMP/Basics/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Kaya3/OneDrive/Masaüstü/ASPNETCOREBOOTCAMP/Basics/Views/Shared/Error.cshtml]
+[C:/Users/Kaya3/OneDrive/Belgeler/GitHub/Asp.Net-Bootcamp/ASPNETCOREBOOTCAMP/Basics/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Kaya3/OneDrive/Masaüstü/ASPNETCOREBOOTCAMP/Basics/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Kaya3/OneDrive/Belgeler/GitHub/Asp.Net-Bootcamp/ASPNETCOREBOOTCAMP/Basics/Views/Shared/_Header.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9IZWFkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kaya3/OneDrive/Belgeler/GitHub/Asp.Net-Bootcamp/ASPNETCOREBOOTCAMP/Basics/Views/Shared/_Navbar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9OYXZiYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kaya3/OneDrive/Belgeler/GitHub/Asp.Net-Bootcamp/ASPNETCOREBOOTCAMP/Basics/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Kaya3/OneDrive/Masaüstü/ASPNETCOREBOOTCAMP/Basics/Views/_ViewImports.cshtml]
+[C:/Users/Kaya3/OneDrive/Belgeler/GitHub/Asp.Net-Bootcamp/ASPNETCOREBOOTCAMP/Basics/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Kaya3/OneDrive/Masaüstü/ASPNETCOREBOOTCAMP/Basics/Views/_ViewStart.cshtml]
+[C:/Users/Kaya3/OneDrive/Belgeler/GitHub/Asp.Net-Bootcamp/ASPNETCOREBOOTCAMP/Basics/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Kaya3/OneDrive/Masaüstü/ASPNETCOREBOOTCAMP/Basics/Views/Shared/_Layout.cshtml]
+[C:/Users/Kaya3/OneDrive/Belgeler/GitHub/Asp.Net-Bootcamp/ASPNETCOREBOOTCAMP/Basics/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-o853urf686

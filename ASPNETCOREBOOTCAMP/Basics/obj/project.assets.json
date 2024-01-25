@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kaya3\\OneDrive\\Masaüstü\\ASPNETCOREBOOTCAMP\\Basics\\Basics.csproj",
+      "projectUniqueName": "C:\\Users\\Kaya3\\OneDrive\\Belgeler\\GitHub\\Asp.Net-Bootcamp\\ASPNETCOREBOOTCAMP\\Basics\\Basics.csproj",
       "projectName": "Basics",
-      "projectPath": "C:\\Users\\Kaya3\\OneDrive\\Masaüstü\\ASPNETCOREBOOTCAMP\\Basics\\Basics.csproj",
+      "projectPath": "C:\\Users\\Kaya3\\OneDrive\\Belgeler\\GitHub\\Asp.Net-Bootcamp\\ASPNETCOREBOOTCAMP\\Basics\\Basics.csproj",
       "packagesPath": "C:\\Users\\Kaya3\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Kaya3\\OneDrive\\Masaüstü\\ASPNETCOREBOOTCAMP\\Basics\\obj\\",
+      "outputPath": "C:\\Users\\Kaya3\\OneDrive\\Belgeler\\GitHub\\Asp.Net-Bootcamp\\ASPNETCOREBOOTCAMP\\Basics\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Kaya3\\AppData\\Roaming\\NuGet\\NuGet.Config",
