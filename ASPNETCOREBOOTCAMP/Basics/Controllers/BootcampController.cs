@@ -11,6 +11,7 @@ namespace Basics.Controllers
             kurs.Id = 1;
             kurs.Title = "Asp Net Core Bootcamp";
             kurs.Description = "23 Ocakta Başlıyor.";
+            kurs.Image = "1.jpg";
 
             return View(kurs);
         }
