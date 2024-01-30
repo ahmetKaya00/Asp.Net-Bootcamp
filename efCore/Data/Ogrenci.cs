@@ -13,5 +13,6 @@ namespace efCore.Data
         }}
         public string? Eposta {get;set;}
         public string? Telefon {get;set;}
+        public ICollection<KursKayit> KursKayitlari {get; set;} = new List<KursKayit>();
     }
 }
