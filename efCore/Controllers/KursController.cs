@@ -1,5 +1,7 @@
 using efCore.Data;
+using efCore.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace efCore.Controllers
@@ -14,10 +16,12 @@ namespace efCore.Controllers
         }
 
         public async Task<IActionResult> Index(){       
-            return View(await _context.Kurslar.ToListAsync());
+            return View(await _context.Kurslar.Include(k=>k.Ogretmen).ToListAsync());
         }
 
-        public IActionResult Create(){
+        public async Task<IActionResult> Create(){
+
+            ViewBag.Ogretmenler = new SelectList(await _context.Ogretmenler.ToListAsync(),"OgretmenId","AdSoyad");
             return View();
         }
 
@@ -38,16 +42,25 @@ namespace efCore.Controllers
             .Kurslar
             .Include(k => k.KursKayitlari)
             .ThenInclude(k=>k.Ogrenci)
+            .Select(k=>new KursViewModel{
+                KursId = k.KursId,
+                Baslik = k.Baslik,
+                OgretmenId = k.OgretmenId,
+                KursKayitlari = k.KursKayitlari
+            })
             .FirstOrDefaultAsync(k=>k.KursId == id);
             if(kurs == null){
                 return NotFound();
             }
+
+            ViewBag.Ogretmenler = new SelectList(await _context.Ogretmenler.ToListAsync(),"OgretmenId","AdSoyad");
+
             return View(kurs);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, Kurs model){
+        public async Task<IActionResult> Edit(int id, KursViewModel model){
             if(id != model.KursId){
                 return NotFound();
             }
@@ -55,7 +68,7 @@ namespace efCore.Controllers
             if(ModelState.IsValid){
                 try
                 {
-                    _context.Update(model);
+                    _context.Update(new Kurs(){KursId = model.KursId, Baslik = model.Baslik, OgretmenId=model.OgretmenId});
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
