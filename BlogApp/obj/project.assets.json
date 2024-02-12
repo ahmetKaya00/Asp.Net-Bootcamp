@@ -1270,11 +1270,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kaya3\\OneDrive\\Belgeler\\GitHub\\Asp.Net-Bootcamp\\BlogApp\\BloggApp.csproj",
+      "projectUniqueName": "C:\\Users\\Kaya3\\Downloads\\Asp.Net-Bootcamp-main\\Asp.Net-Bootcamp-main\\BlogApp\\BloggApp.csproj",
       "projectName": "BloggApp",
-      "projectPath": "C:\\Users\\Kaya3\\OneDrive\\Belgeler\\GitHub\\Asp.Net-Bootcamp\\BlogApp\\BloggApp.csproj",
+      "projectPath": "C:\\Users\\Kaya3\\Downloads\\Asp.Net-Bootcamp-main\\Asp.Net-Bootcamp-main\\BlogApp\\BloggApp.csproj",
       "packagesPath": "C:\\Users\\Kaya3\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Kaya3\\OneDrive\\Belgeler\\GitHub\\Asp.Net-Bootcamp\\BlogApp\\obj\\",
+      "outputPath": "C:\\Users\\Kaya3\\Downloads\\Asp.Net-Bootcamp-main\\Asp.Net-Bootcamp-main\\BlogApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Kaya3\\AppData\\Roaming\\NuGet\\NuGet.Config",

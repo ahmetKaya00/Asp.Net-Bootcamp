@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0rKgdC6UM80DpXrkfg3wt0w7UMslqPJYeJv/upVbpyWZz0N43yn/VbJE4GuTtXVZ0evKYGbYxYK0NPSv+ulv0g==",
+  "dgSpecHash": "JCS9q011BcU8gZGoeYA6Qu+/NQs6Zmpnf9+6ndknoR3h8NIrWmeDZfp7n5M60Ut0hD1EAFY6rZsr+E3J9e99Ig==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Kaya3\\OneDrive\\Belgeler\\GitHub\\Asp.Net-Bootcamp\\BlogApp\\BloggApp.csproj",
+  "projectFilePath": "C:\\Users\\Kaya3\\Downloads\\Asp.Net-Bootcamp-main\\Asp.Net-Bootcamp-main\\BlogApp\\BloggApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kaya3\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Kaya3\\.nuget\\packages\\microsoft.data.sqlite.core\\7.0.10\\microsoft.data.sqlite.core.7.0.10.nupkg.sha512",

@@ -9,39 +9,55 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BloggApp
 build_property.RootNamespace = BloggApp
-build_property.ProjectDir = C:\Users\Kaya3\OneDrive\Belgeler\GitHub\Asp.Net-Bootcamp\BlogApp\
+build_property.ProjectDir = C:\Users\Kaya3\Downloads\Asp.Net-Bootcamp-main\Asp.Net-Bootcamp-main\BlogApp\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Kaya3\OneDrive\Belgeler\GitHub\Asp.Net-Bootcamp\BlogApp
+build_property.MSBuildProjectDirectory = C:\Users\Kaya3\Downloads\Asp.Net-Bootcamp-main\Asp.Net-Bootcamp-main\BlogApp
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Kaya3/OneDrive/Belgeler/GitHub/Asp.Net-Bootcamp/BlogApp/Views/Posts/details.cshtml]
+[C:/Users/Kaya3/Downloads/Asp.Net-Bootcamp-main/Asp.Net-Bootcamp-main/BlogApp/Views/Posts/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9zdHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kaya3/Downloads/Asp.Net-Bootcamp-main/Asp.Net-Bootcamp-main/BlogApp/Views/Posts/details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9zdHNcZGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Kaya3/OneDrive/Belgeler/GitHub/Asp.Net-Bootcamp/BlogApp/Views/Posts/index.cshtml]
+[C:/Users/Kaya3/Downloads/Asp.Net-Bootcamp-main/Asp.Net-Bootcamp-main/BlogApp/Views/Posts/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9zdHNcaW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Kaya3/OneDrive/Belgeler/GitHub/Asp.Net-Bootcamp/BlogApp/Views/Shared/Components/NewPosts/Default.cshtml]
+[C:/Users/Kaya3/Downloads/Asp.Net-Bootcamp-main/Asp.Net-Bootcamp-main/BlogApp/Views/Posts/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUG9zdHNcTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kaya3/Downloads/Asp.Net-Bootcamp-main/Asp.Net-Bootcamp-main/BlogApp/Views/Shared/Components/NewPosts/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcTmV3UG9zdHNcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Kaya3/OneDrive/Belgeler/GitHub/Asp.Net-Bootcamp/BlogApp/Views/Shared/Components/TagsMenu/Default.cshtml]
+[C:/Users/Kaya3/Downloads/Asp.Net-Bootcamp-main/Asp.Net-Bootcamp-main/BlogApp/Views/Shared/Components/TagsMenu/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcVGFnc01lbnVcRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Kaya3/OneDrive/Belgeler/GitHub/Asp.Net-Bootcamp/BlogApp/Views/Shared/_Layout.cshtml]
+[C:/Users/Kaya3/Downloads/Asp.Net-Bootcamp-main/Asp.Net-Bootcamp-main/BlogApp/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Kaya3/OneDrive/Belgeler/GitHub/Asp.Net-Bootcamp/BlogApp/Views/_Viewimports.cshtml]
+[C:/Users/Kaya3/Downloads/Asp.Net-Bootcamp-main/Asp.Net-Bootcamp-main/BlogApp/Views/Users/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kaya3/Downloads/Asp.Net-Bootcamp-main/Asp.Net-Bootcamp-main/BlogApp/Views/Users/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcUmVnaXN0ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kaya3/Downloads/Asp.Net-Bootcamp-main/Asp.Net-Bootcamp-main/BlogApp/Views/_Viewimports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdpbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Kaya3/OneDrive/Belgeler/GitHub/Asp.Net-Bootcamp/BlogApp/Views/_ViewStart.cshtml]
+[C:/Users/Kaya3/Downloads/Asp.Net-Bootcamp-main/Asp.Net-Bootcamp-main/BlogApp/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
