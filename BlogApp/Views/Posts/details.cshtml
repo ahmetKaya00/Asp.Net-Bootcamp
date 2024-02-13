@@ -1,41 +1,45 @@
 @model Post
-    <div class="row">
-        <div class="col-lg-8">
-            <div class="bg-white p-4">
-                <h1 class="h4 mb-4">@Model.Title</h1>
-                <div class="tags">
-                   @foreach(var tag in Model.Tags){
-                    <a href="/posts/tag/@tag.Url" class="badge bg-@tag.Color bg-opacity-10 text-@tag.Color mb-2 fw-bold">@tag.Text</a>
-                   }
-                </div>
-                <img src="~/img/@Model.Image" class="img-fluid rounded" alt="">
-                <div>@Model.Content</div>
-            </div>
-            <div class="bg-white mt-3">
-                <div class="card border-0">
-                    <div class="card-header pb-0">
-                        <h4 id="commentCount">@Model.Coments.Count() adet yorum.</h4>
-                    </div>
-                    <div class="card-body">
-                        <div id="comments">
-                        @foreach(var comment in Model.Coments){
-                        <div class="my-4 d-flex">
-                            <img src="~/img/@comment.User.Image" alt="" class="avatar rounded-circle float-start me-3">
 
-                            <div>
-                            <div class="mb-2 d-flex">
-                                <h6 class="me-2">@comment.User.UserName</h6>
-                                <small>@comment.PublishedOn.ToString("d")</small>
+<div class="row">
+    <div class="col-lg-8">
+        <div class="bg-white p-4">
+            <h1 class="h4 mb-4">@Model.Title</h1>
+            <div class="tags">
+                @foreach(var tag in Model.Tags)
+                {
+                    <a href="/posts/tag/@tag.Url" class="badge bg-@tag.Color bg-opacity-10 text-@tag.Color mb-2 fw-bold">@tag.Text</a>
+                } 
+            </div>
+            <img src="~/img/@Model.Image" class="img-fluid rounded" alt="">
+            <div>@Html.Raw(@Model.Content)</div>            
+        </div>
+        <div class="bg-white mt-3">
+            <div class="card border-0">
+                <div class="card-header pb-0">
+                    <h4><span id="commentCount">@Model.Comments.Count()</span> adet yorum</h4>
+                </div>
+                <div class="card-body">
+                    <div id="comments">
+                        @foreach(var comment in Model.Comments)
+                        {
+                            <div class="my-4 d-flex">
+                                <img src="/img/@comment.User.Image" alt="" class="avatar rounded-circle float-start me-3">
+                                <div>
+                                    <div class="mb-2 d-flex">
+                                        <h6 class="me-2">@comment.User.UserName</h6>
+                                        <small>@comment.PublishedOn.ToString("G")</small>
+                                    </div>
+                                    <p>@comment.Text</p>
+                                </div>
                             </div>
-                            <p>@comment.Text</p>
-                        </div>
-                        </div>
                         }
-                        </div>
-                        @if(User.Identity.IsAuthenticated){
+                    </div>
+
+                    @if(User.Identity!.IsAuthenticated)
+                    {
                         <hr class="my-4">
                         <div>
-                            <h4>Yorum Ekle</h4>
+                            <h4 class="mb-3">Yorum Ekle</h4>
                             <form action="/posts/AddComment" method="post">
                                 <input type="hidden" id="PostId" name="PostId" value="@Model.PostId">
                                 <div class="mb-3">
@@ -44,28 +48,31 @@
                                 </div>
                                 <div class="mb-3">
                                     <button id="btnYorumKayit" type="submit" class="btn btn-primary">Kaydet</button>
-                                </div>                           
+                                </div>
                             </form>
-                        </div>     
-                        }
-                        else
-                        {
-                            <p>Yorum için uygulamaya giriş yapınız. <a href="/users/login">Login</a></p>
-                        }
-                                          
-                    </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <p>Yorum için uygulamaya giriş yapmalısınız. <a href="/users/login">Login</a></p>
+                    }
+                   
                 </div>
             </div>
-        <div class="col-lg-4">
-            <vc:tags-menu></vc:tags-menu>
-            <vc:new-posts></vc:new-posts>
         </div>
     </div>
-    
-@section Scripts{
+    <div class="col-lg-4">
+        <vc:tags-menu></vc:tags-menu>
+        <vc:new-posts></vc:new-posts>
+    </div>
+       
+</div>
+
+@section Scripts {
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
+
             $("#btnYorumKayit").click(function() {
                 $.ajax({
                     type: 'POST',
@@ -77,26 +84,35 @@
                         Text: $('#Text').val(),
                     },
                     success: function(yorum) {
-                        var date = new Date(yorum.PublishedOn);
-                        $('#comments').append(`<div class="my-4 d-flex">
-                            <img src="~/img/${yorum.avatar}" alt="" class="avatar rounded-circle float-start me-3">
-                            <div>
-                            <div class="mb-2 d-flex">
-                                <h6 class="me-2">${yorum.username}</h6>
-                                <small>${date.toLocaleDateString()} ("d")</small>
+                        console.log(yorum);
+                        var date = new Date(yorum.publishedOn);
+
+                        $("#comments").append(`
+                            <div class="my-4 d-flex">
+                                <img src="/img/${yorum.avatar}" alt="" class="avatar rounded-circle float-start me-3">
+                                <div>
+                                    <div class="mb-2 d-flex">
+                                        <h6 class="me-2">${yorum.username}</h6>
+                                        <small>${date.toLocaleDateString()}</small>
+                                    </div>
+                                    <p>${yorum.text}</p>
+                                </div>
                             </div>
-                            <p>${yorum.Text}</p>
-                        </div>
-                        </div>`);
+                        `);
+
                         $("#UserName").val('');
                         $("#Text").val('');
 
                         var adet = parseInt($("#commentCount").text());
-                        $("#commentCount").text(adet+1);
+                        $("#commentCount").text(adet + 1);
                     }
                 });
+
                 return false;
             });
+
         });
     </script>
 }
+
+

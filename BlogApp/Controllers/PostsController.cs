@@ -1,84 +1,85 @@
 using System.Security.Claims;
-using Blogapp.Data.Abstract;
-using Blogapp.Data.Concrete.EfCore;
-using Blogapp.Entity;
-using Blogapp.Models;
+using BlogApp.Data.Abstract;
+using BlogApp.Data.Concrete.EfCore;
+using BlogApp.Entity;
+using BlogApp.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace Blogapp.Controllers
+namespace BlogApp.Controllers
 {
-    public class PostsController : Controller{
-
+    public class PostsController : Controller
+    {
         private IPostRepository _postRepository;
-        private ICommentRepository _commentcrRepository;
-        public PostsController(IPostRepository postRepository,ICommentRepository commentcrRepository){
+        private ICommentRepository _commentRepository;
+        public PostsController(IPostRepository postRepository, ICommentRepository commentRepository)
+        {
             _postRepository = postRepository;
-            _commentcrRepository = commentcrRepository;
+            _commentRepository = commentRepository;
         }
-        public async Task<IActionResult> Index(string tag){
-
-            var claims = User.Claims;
-
+        public async Task<IActionResult> Index(string tag)
+        {
             var posts = _postRepository.Posts;
 
-            if(!string.IsNullOrEmpty(tag)){
+            if(!string.IsNullOrEmpty(tag))
+            {
                 posts = posts.Where(x => x.Tags.Any(t => t.Url == tag));
             }
 
-            return View(new PostViewModel{Posts = await posts.ToListAsync()});
+            return View( new PostsViewModel { Posts = await posts.ToListAsync() });
         }
 
-        public async Task<IActionResult> Details(string url){
+        public async Task<IActionResult> Details(string url)
+        {
             return View(await _postRepository
                         .Posts
-                        .Include(x=> x.Tags)
-                        .Include(x=>x.Coments)
+                        .Include(x => x.Tags)
+                        .Include(x => x.Comments)
                         .ThenInclude(x => x.User)
-                        .FirstOrDefaultAsync(p=>p.Url == url));
+                        .FirstOrDefaultAsync(p => p.Url == url));
         }
 
         [HttpPost]
-        public JsonResult AddComment(int PostId, string Text){
-
+        public JsonResult AddComment(int PostId, string Text)
+        {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var username = User.FindFirstValue(ClaimTypes.Name);
             var avatar = User.FindFirstValue(ClaimTypes.UserData);
 
-
-            var entity = new Coment{
+            var entity = new Comment {
                 PostId = PostId,
                 Text = Text,
                 PublishedOn = DateTime.Now,
                 UserId = int.Parse(userId ?? "")
             };
-            
-            _commentcrRepository.CreateComments(entity);
-            
-            return Json(new {
+            _commentRepository.CreateComment(entity);
+
+            return Json(new { 
                 username,
                 Text,
                 entity.PublishedOn,
                 avatar
             });
+
         }
 
         [Authorize]
-        public IActionResult Create(){
+        public IActionResult Create()
+        {
             return View();
-        }
+        }   
 
-        [Authorize]
         [HttpPost]
-         public IActionResult Create(PostCreateViewModel model){
-
-            if(ModelState.IsValid){
-
+        [Authorize]
+        public IActionResult Create(PostCreateViewModel model)
+        {
+            if(ModelState.IsValid)
+            {
                 var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
                 _postRepository.CreatePost(
-                    new Post{
+                    new Post {
                         Title = model.Title,
                         Content = model.Content,
                         Url = model.Url,
@@ -86,24 +87,27 @@ namespace Blogapp.Controllers
                         PublishedOn = DateTime.Now,
                         Image = "1.jpg",
                         IsActive = false
-                    });
-                    return RedirectToAction("Index");
+                    }
+                );
+                return RedirectToAction("Index");
             }
             return View(model);
-        }  
+        }       
 
         [Authorize]
-        public async Task<IActionResult> List(){
-
+        public async Task<IActionResult> List()
+        {
             var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier) ?? "");
             var role = User.FindFirstValue(ClaimTypes.Role);
 
             var posts = _postRepository.Posts;
 
-            if(string.IsNullOrEmpty(role)){
-                posts = posts.Where(i=>i.UserId==userId);
+            if(string.IsNullOrEmpty(role))
+            {
+                posts = posts.Where(i => i.UserId == userId);
             }
+
             return View(await posts.ToListAsync());
-        }
+        }  
     }
 }

@@ -1,33 +1,33 @@
-
 using System.ComponentModel.DataAnnotations;
-using Blogapp.Entity;
 
-namespace Blogapp.Models
+namespace BlogApp.Models
 {
-    public class RegisterViewModel{
+    public class RegisterViewModel
+    {
 
         [Required]
-        [Display(Name = "UserName")]
-        public string? UserName {get;set;}
+        [Display(Name = "Username")]
+        public string? UserName { get; set; }
 
         [Required]
         [Display(Name = "Ad Soyad")]
-        public string? Name {get;set;}
+        public string? Name { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Eposta")]
-        public string? Email {get;set;}
+        public string? Email { get; set;}
 
-        [Required]
-        [StringLength(10, ErrorMessage = "{0} alanı en az {2} karakter uzunluğunda olmalıdır.",MinimumLength =6)]
+        [Required]  
+        [StringLength(10, ErrorMessage = "{0} alanı en  az {2} karakter uzunluğunda olmalıdır.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Parola")]
-        public string? Password {get;set;}
+        public string? Password { get; set; }
 
-        [Required]
+        [Required]  
         [DataType(DataType.Password)]
-        [Compare(nameof(Password), ErrorMessage = "Parolanız eşleşmiyor")]
+        [Compare(nameof(Password), ErrorMessage = "Parolanız eşleşmiyor.")]
         [Display(Name = "Parola Tekrar")]
-        public string? ConfirmPassword {get;set;}
+        public string? ConfirmPassword { get; set; }
     }
 }

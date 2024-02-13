@@ -1,10 +1,10 @@
-using Blogapp.Entity;
+using BlogApp.Entity;
 
-namespace Blogapp.Data.Abstract
+namespace BlogApp.Data.Abstract
 {
-    public interface IPostRepository{
-        IQueryable<Post> Posts {get;}
-
+    public interface IPostRepository
+    {
+        IQueryable<Post> Posts { get; }
         void CreatePost(Post post);
     }
 }

@@ -1,10 +1,10 @@
-using Blogapp.Entity;
+using BlogApp.Entity;
 
-namespace Blogapp.Data.Abstract
+namespace BlogApp.Data.Abstract
 {
-    public interface IUserRepository{
-        IQueryable<User> Users {get;}
-
-        void CreateUser(User user);
+    public interface IUserRepository
+    {
+        IQueryable<User> Users { get; }
+        void CreateUser(User User);
     }
 }

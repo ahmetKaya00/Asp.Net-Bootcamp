@@ -1,10 +1,10 @@
-using Blogapp.Entity;
+using BlogApp.Entity;
 
-namespace Blogapp.Data.Abstract
+namespace BlogApp.Data.Abstract
 {
-    public interface ICommentRepository{
-        IQueryable<Coment> Comments {get;}
-
-        void CreateComments(Coment comment);
+    public interface ICommentRepository
+    {
+        IQueryable<Comment> Comments { get; }
+        void CreateComment(Comment comment);
     }
 }

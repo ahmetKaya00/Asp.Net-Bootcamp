@@ -1,25 +1,23 @@
-
 using System.ComponentModel.DataAnnotations;
-using Blogapp.Entity;
 
-namespace Blogapp.Models
+namespace BlogApp.Models
 {
-    public class PostCreateViewModel{
-
+    public class PostCreateViewModel
+    {
         [Required]
         [Display(Name = "Başlık")]
-        public string? Title{get;set;}
+        public string? Title { get; set;}
 
-        [Required]
+        [Required]  
         [Display(Name = "Açıklama")]
-        public string? Description{get;set;}
+        public string? Description { get; set; }
 
-        [Required]
+        [Required]  
         [Display(Name = "İçerik")]
-        public string? Content{get;set;}
+        public string? Content { get; set; }
 
-        [Required]
+        [Required]  
         [Display(Name = "Url")]
-        public string? Url{get;set;}
+        public string? Url { get; set; }
     }
 }

@@ -1,10 +1,10 @@
-using Blogapp.Entity;
+using BlogApp.Entity;
 
-namespace Blogapp.Data.Abstract
+namespace BlogApp.Data.Abstract
 {
-    public interface ITagRepository{
-        IQueryable<Tag> Tags {get;}
-
-        void CreateTag(Tag post);
+    public interface ITagRepository
+    {
+        IQueryable<Tag> Tags { get; }
+        void CreateTag(Tag tag);
     }
 }

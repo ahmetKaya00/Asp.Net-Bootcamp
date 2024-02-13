@@ -1,25 +1,18 @@
-using Blogapp.Data.Abstract;
-using Blogapp.Data.Concrete;
-using Blogapp.Data.Concrete.EfCore;
+using BlogApp.Data.Abstract;
+using BlogApp.Data.Concrete;
+using BlogApp.Data.Concrete.EfCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
-
-builder.Services.AddDbContext<BlogContext>(options =>{
-    var config = builder.Configuration;
-    var connectionString = config.GetConnectionString("sql_connection");
-    options.UseSqlite(connectionString);
-});
+builder.Services.AddDbContext<BlogContext>(options => { options.UseSqlite(builder.Configuration["ConnectionStrings:Sql_connection"]); });
 
 builder.Services.AddScoped<IPostRepository, EfPostRepository>();
 builder.Services.AddScoped<ITagRepository, EfTagRepository>();
-builder.Services.AddScoped<ICommentRepository,EfCommentsRepository>();
-builder.Services.AddScoped<IUserRepository,EfUserRepository>();
+builder.Services.AddScoped<ICommentRepository, EfCommentRepository>();
+builder.Services.AddScoped<IUserRepository, EfUserRepository>();
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options => {
     options.LoginPath = "/Users/Login";
@@ -37,18 +30,18 @@ SeedData.TestVerileriniDoldur(app);
 
 app.MapControllerRoute(
     name: "post_details",
-    pattern: "posts/details/{Url}",
-    defaults: new {controller = "Posts", action = "Details"}
+    pattern: "posts/details/{url}",
+    defaults: new {controller = "Posts", action = "Details" }
 );
 
 app.MapControllerRoute(
-    name: "post_by_tag",
+    name: "posts_by_tag",
     pattern: "posts/tag/{tag}",
-    defaults: new {controller = "Posts", action = "Index"}
+    defaults: new {controller = "Posts", action = "Index" }
 );
 
 app.MapControllerRoute(
-    name: "Default",
+    name: "default",
     pattern: "{controller=Posts}/{action=Index}/{id?}"
 );
 

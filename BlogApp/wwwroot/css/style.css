@@ -1,10 +1,12 @@
-body{
+body {
     background-color: #eff2f6;
 }
-a{
+
+a {
     text-decoration: none;
 }
-.avatar{
+
+.avatar {
     width: 3rem;
     height: 3rem;
 }
