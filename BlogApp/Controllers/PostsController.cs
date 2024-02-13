@@ -13,14 +13,16 @@ namespace BlogApp.Controllers
     {
         private IPostRepository _postRepository;
         private ICommentRepository _commentRepository;
-        public PostsController(IPostRepository postRepository, ICommentRepository commentRepository)
+        private ITagRepository _tagRepository;
+        public PostsController(IPostRepository postRepository, ICommentRepository commentRepository,ITagRepository tagRepository)
         {
             _postRepository = postRepository;
             _commentRepository = commentRepository;
+            _tagRepository = tagRepository;
         }
         public async Task<IActionResult> Index(string tag)
         {
-            var posts = _postRepository.Posts;
+            var posts = _postRepository.Posts.Where(i=>i.IsActive);
 
             if(!string.IsNullOrEmpty(tag))
             {
@@ -34,6 +36,7 @@ namespace BlogApp.Controllers
         {
             return View(await _postRepository
                         .Posts
+                        .Include(x => x.User)
                         .Include(x => x.Tags)
                         .Include(x => x.Comments)
                         .ThenInclude(x => x.User)
@@ -109,5 +112,52 @@ namespace BlogApp.Controllers
 
             return View(await posts.ToListAsync());
         }  
+
+        [Authorize]
+        public IActionResult Edit(int? id)
+        {
+            if(id == null){
+                return NotFound();
+            }
+            var post = _postRepository.Posts.Include(i=>i.Tags).FirstOrDefault(i=> i.PostId == id);
+            if(post == null){
+                return NotFound();
+            }
+
+            ViewBag.Tags = _tagRepository.Tags.ToList();
+
+            return View(new PostCreateViewModel{
+                PostId = post.PostId,
+                Title = post.Title,
+                Description = post.Description,
+                Content = post.Content,
+                Url = post.Url,
+                IsActive = post.IsActive,
+                Tags = post.Tags
+            });
+        }
+
+        [Authorize]
+        [HttpPost]
+        public IActionResult Edit(PostCreateViewModel model, int[] tagIds)
+        {
+            if(ModelState.IsValid){
+                var entityToUpdate = new Post{
+                    PostId = model.PostId,
+                    Title = model.Title,
+                    Description = model.Description,
+                    Content = model.Content,
+                    Url = model.Url
+                };
+                if(User.FindFirstValue(ClaimTypes.Role) == "admin"){
+                    entityToUpdate.IsActive = model.IsActive;
+                }
+
+                _postRepository.EditPost(entityToUpdate,tagIds);
+                return RedirectToAction("List");
+            }
+            ViewBag.Tags = _tagRepository.Tags.ToList();
+            return View(model);
+        }
     }
 }
