@@ -3,15 +3,17 @@ using Microsoft.EntityFrameworkCore;
 
 namespace IdentityApp.Models
 {
-    public static class IdentitySeedData{
+    public static class IdentitySeedData
+    {
         private const string adminUser = "admin";
-        private const string adminPassword = "admin123";
+        private const string adminPassword = "Admin_123";
 
-        public static async void IdentityTestUser(IApplicationBuilder app){
+        public static async void IdentityTestUser(IApplicationBuilder app)
+        {
+            var context = app.ApplicationServices.CreateScope().ServiceProvider.GetRequiredService<IdentityContext>();
 
-            var context = app.ApplicationServices.CreateAsyncScope().ServiceProvider.GetRequiredService<IdentityContext>();
-
-            if(context.Database.GetAppliedMigrations().Any()){
+            if(context.Database.GetAppliedMigrations().Any())
+            {
                 context.Database.Migrate();
             }
 
@@ -19,16 +21,17 @@ namespace IdentityApp.Models
 
             var user = await userManager.FindByNameAsync(adminUser);
 
-            if(user == null){
-                user = new AppUser{
+            if(user == null)
+            {
+                user = new AppUser {
                     FullName = "Ahmet Kaya",
                     UserName = adminUser,
                     Email = "admin@ahmetkaya.com",
-                    PhoneNumber = "44554455445"
+                    PhoneNumber = "44444444"                    
                 };
-            
-            await userManager.CreateAsync(user,adminPassword);
+
+                await userManager.CreateAsync(user, adminPassword);
             }
         }
-    }
+    } 
 }
