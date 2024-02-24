@@ -10,11 +10,13 @@ namespace IdentityApp.Controllers
         private  RoleManager<AppRole> _roleManager;
         private  UserManager<AppUser> _userManager;
         private SignInManager<AppUser> _signInManager;
-        public AccountController(RoleManager<AppRole> roleManager, UserManager<AppUser> userManager,SignInManager<AppUser> signInManager)
+        private IEmailSender _emailSender;
+        public AccountController(RoleManager<AppRole> roleManager, UserManager<AppUser> userManager,SignInManager<AppUser> signInManager,IEmailSender emailSender)
         {
             _roleManager = roleManager;
             _userManager = userManager;
             _signInManager= signInManager;
+            _emailSender = emailSender;
         }
 
         public IActionResult Login(){
@@ -78,9 +80,10 @@ namespace IdentityApp.Controllers
                     var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     var url = Url.Action("ConfirmEmail","Account", new{user.Id, token});
 
+                    await _emailSender.SendEmailAsync(user.Email,"Hesap Onayı",$"Lütfen email hesbınızı onaylamak için linke <a href='http://localhost:5034{url}'>tıklayınız.</a>");
 
-
-                    return RedirectToAction("Index");
+                    TempData["message"] = "Email adresinize gelen onay linkine tıklayınız.";
+                    return RedirectToAction("Login","Account");
                 }
 
                 foreach (IdentityError err in result.Errors)
@@ -106,6 +109,64 @@ namespace IdentityApp.Controllers
             }
             TempData["message"] = "Kullanıcı bulunamadı!";
             return View();
+        }
+
+        public async Task<IActionResult> Logout(){
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Login");
+        }
+
+        public IActionResult ForgotPassword(){
+            return View();
+        }
+
+        [HttpPost]
+
+        public async Task<IActionResult> ForgotPassword(string Email){
+            if(string.IsNullOrEmpty(Email)){
+                TempData ["message"] = "Lütfen Eposta adresinizi giriniz.";
+                return View();
+            }
+
+            var user = await _userManager.FindByEmailAsync(Email);
+            if(user == null){
+                TempData ["message"] = "Eposta adresine kayıtlı kullanıcı bulunamadı.";
+                return View();
+            }
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var url = Url.Action("ResetPassword","Account", new {user.Id, token});
+
+            await _emailSender.SendEmailAsync(Email,"Parola Sıfırlama",$"Lütfen email hesbınızı onaylamak için linke <a href='http://localhost:5034{url}'>tıklayınız.</a>");
+
+            TempData ["message"] = "Eposta adresinize gelen link ile şifrenizi sıfırlayabilirsiniz.";
+
+            return View();
+        }
+
+        public IActionResult ResetPassword(string Id, string token){
+            if(Id == null || token == null){
+                return RedirectToAction("Login");
+            }
+
+            var model = new ResetPasswordModel{Token = token};
+            return View(model);
+        }
+        [HttpPost]
+        public async Task<IActionResult> ResetPassword(ResetPasswordModel model){
+            if(ModelState.IsValid){
+            var user = await _userManager.FindByEmailAsync(model.Email);
+            if(user == null){
+                TempData ["message"] = "Bu mail adresiyle eşleşen kullanıcı yok";
+                return RedirectToAction("Login");
+            }
+
+            var result = await _userManager.ResetPasswordAsync(user,model.Token,model.Password);
+            if(result.Succeeded){
+                TempData ["message"] = "Şifreniz değiştirildi.";
+               return RedirectToAction("Login");
+            }
+            }
+            return View(model);
         }
     }
 }
