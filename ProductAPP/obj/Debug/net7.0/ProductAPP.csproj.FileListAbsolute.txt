@@ -68,3 +68,17 @@ C:\Users\Kaya3\OneDrive\Belgeler\GitHub\Asp.Net-Bootcamp\ProductAPP\obj\Debug\ne
 C:\Users\Kaya3\OneDrive\Belgeler\GitHub\Asp.Net-Bootcamp\ProductAPP\obj\Debug\net7.0\ProductAPP.pdb
 C:\Users\Kaya3\OneDrive\Belgeler\GitHub\Asp.Net-Bootcamp\ProductAPP\obj\Debug\net7.0\ProductAPP.genruntimeconfig.cache
 C:\Users\Kaya3\OneDrive\Belgeler\GitHub\Asp.Net-Bootcamp\ProductAPP\obj\Debug\net7.0\ref\ProductAPP.dll
+C:\Users\Kaya3\OneDrive\Belgeler\GitHub\Asp.Net-Bootcamp\ProductAPP\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Kaya3\OneDrive\Belgeler\GitHub\Asp.Net-Bootcamp\ProductAPP\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Kaya3\OneDrive\Belgeler\GitHub\Asp.Net-Bootcamp\ProductAPP\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\Kaya3\OneDrive\Belgeler\GitHub\Asp.Net-Bootcamp\ProductAPP\bin\Debug\net7.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Kaya3\OneDrive\Belgeler\GitHub\Asp.Net-Bootcamp\ProductAPP\bin\Debug\net7.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\Kaya3\OneDrive\Belgeler\GitHub\Asp.Net-Bootcamp\ProductAPP\bin\Debug\net7.0\Microsoft.Extensions.Options.dll
+C:\Users\Kaya3\OneDrive\Belgeler\GitHub\Asp.Net-Bootcamp\ProductAPP\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Kaya3\OneDrive\Belgeler\GitHub\Asp.Net-Bootcamp\ProductAPP\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Kaya3\OneDrive\Belgeler\GitHub\Asp.Net-Bootcamp\ProductAPP\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\Kaya3\OneDrive\Belgeler\GitHub\Asp.Net-Bootcamp\ProductAPP\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\Kaya3\OneDrive\Belgeler\GitHub\Asp.Net-Bootcamp\ProductAPP\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Kaya3\OneDrive\Belgeler\GitHub\Asp.Net-Bootcamp\ProductAPP\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\Kaya3\OneDrive\Belgeler\GitHub\Asp.Net-Bootcamp\ProductAPP\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\Kaya3\OneDrive\Belgeler\GitHub\Asp.Net-Bootcamp\ProductAPP\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll

@@ -1,5 +1,7 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ProductAPP.DTO;
 using ProductAPP.Models;
 
 namespace ProductAPP.Controllers
@@ -17,19 +19,24 @@ namespace ProductAPP.Controllers
         // localhost:5159/api/Products => GET
         [HttpGet]
         public async Task<IActionResult> GetProducts(){
-           var products = await _context.Products.ToListAsync();
+           var products = await _context
+                                .Products.Where(i=>i.IsActive).Select(p =>ProductDTO(p)).ToListAsync();
 
            return Ok(products);
-
         }
 
         // localhost:5159/api/Products/1 => GET
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProducts(int? id){
             if(id == null){
                 return NotFound();
             }
-            var p = await _context.Products.FirstOrDefaultAsync(i => i.ProductId == id);
+            var p = await _context
+                            .Products
+                            .Where(i=>i.ProductId == id)
+                            .Select(p => ProductDTO(p))
+                            .FirstOrDefaultAsync();
 
             if(p == null){
                 return NotFound();
@@ -47,7 +54,8 @@ namespace ProductAPP.Controllers
         }
 
         [HttpPut("{id}")]
-            public async Task<IActionResult> UpdateProduct(int id, Product entity){
+            public async Task<IActionResult> UpdateProduct(int id, Product entity)
+            {
                 if(id != entity.ProductId){
                     return BadRequest();
                 }
@@ -92,6 +100,16 @@ namespace ProductAPP.Controllers
                 }
 
                 return NoContent();
+            }
+
+            private static ProductDTO ProductDTO(Product p){
+                var entity = new ProductDTO();
+                if(p != null){
+                    entity.ProductId = p.ProductId;
+                    entity.ProductName = p.ProductName;
+                    entity.Price = p.Price;
+                }
+                return entity;
             }
         }
     }
